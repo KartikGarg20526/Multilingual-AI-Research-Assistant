@@ -1,0 +1,9 @@
+argostranslate
+arxiv
+langchain
+langchain_community
+langchain_huggingface
+pypdf
+qdrant-client
+langchain-cohere
+gradio
