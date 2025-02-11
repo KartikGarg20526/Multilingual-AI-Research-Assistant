@@ -1,6 +1,6 @@
 # Multilingual AI Research Assistant
 
-This project provides a multilingual AI research assistant that helps users get answers to research-related queries in various languages. The system leverages the power of arXiv research papers, language translation, and advanced LLMs (Cohere in this case) to answer questions based on the research papers. It supports multiple languages for both input queries and output answers.
+This project provides a multilingual AI research assistant that helps users get answers to research-related queries in various languages. The system leverages the power of arXiv research papers, language translation, and advanced LLMs (Cohere) to answer questions based on the research papers. It supports multiple languages for both input queries and output answers.
 
 ## Features
 
