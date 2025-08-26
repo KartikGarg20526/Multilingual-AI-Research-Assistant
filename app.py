@@ -50,7 +50,7 @@ def process_papers_text(query, input_language='English'):
     client = arxiv.Client()
     search = arxiv.Search(
         query=query_in_english,
-        max_results=7,
+        max_results=5,
         sort_by=arxiv.SortCriterion.Relevance
     )
     
@@ -79,7 +79,7 @@ def create_vector_database(text):
     text = text.strip()
     text = ' '.join(text.split())
 
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     paper_chunks = text_splitter.create_documents([text])
 
     qdrant = Qdrant.from_documents(
@@ -121,7 +121,8 @@ def retrieve_answer_question(question, retriever, input_language='English', outp
 def final_setup(query, question, input_language, output_language):
     text = process_papers_text(query, input_language)
     qdrant = create_vector_database(text)
-    return retrieve_answer_question(question,qdrant.as_retriever(),input_language,output_language)
+    retriever = qdrant.as_retriever(search_kwargs={"k": 7})
+    return retrieve_answer_question(question,retriever,input_language,output_language)
 
 
 def setup_gradio_interface():
@@ -139,4 +140,5 @@ def setup_gradio_interface():
     )
 
 iface = setup_gradio_interface()
+
 iface.launch()
