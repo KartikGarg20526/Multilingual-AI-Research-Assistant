@@ -51,7 +51,7 @@ Perfect for researchers, students, academics, and anyone seeking multilingual ac
 
 ## 🎥 Demo
 
-**Live Demo**: [Access on Hugging Face Spaces](https://huggingface.co/spaces/your-username/multilingual-ai-research-assistant)
+**Live Demo**: [Access on Hugging Face Spaces](https://huggingface.co/spaces/KartikGarg163/Multilingual-AI-Research-Assistant)
 
 ### Example Queries
 
@@ -259,3 +259,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
     <a href="https://github.com/KartikGarg20526/Multilingual-AI-Research-Assistant">⭐ Star this project</a> if you find it useful!
   </p>
 </div>
+
