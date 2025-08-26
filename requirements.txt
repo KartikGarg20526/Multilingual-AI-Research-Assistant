@@ -3,6 +3,7 @@ arxiv
 langchain
 langchain_community
 langchain_huggingface
+sentence-transformers
 pypdf
 qdrant-client
 langchain-cohere
