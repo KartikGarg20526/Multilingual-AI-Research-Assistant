@@ -1,76 +1,261 @@
 # Multilingual AI Research Assistant
 
-This project provides a multilingual AI research assistant that helps users get answers to research-related queries in various languages. The system leverages the power of arXiv research papers, language translation, and advanced LLMs (Cohere) to answer questions based on the research papers. It supports multiple languages for both input queries and output answers.
+<div align="center">
+  <p>
+    <strong>Ask research questions in any language, get answers powered by arXiv papers</strong>
+  </p>
+  <p>
+    <a href="#features">Features</a> •
+    <a href="#demo">Demo</a> •
+    <a href="#quick-start">Quick Start</a> •
+    <a href="#installation">Installation</a> •
+    <a href="#usage">Usage</a> •
+    <a href="#api-reference">API</a> •
+    <a href="#contributing">Contributing</a>
+  </p>
+</div>
 
-## Features
+## 🔬 About
 
-*   **Multilingual Support:** Ask your research query in multiple languages and get answers in any language of your choice.
-*   **Research Query Handling:** The system performs an arXiv search based on your research query and uses relevant research papers to generate answers.  Multiple queries can be provided, separated by the word "OR".
-*   **Answer Generation:** Uses a retrieval-based question-answering mechanism with LLMs to generate answers based on the retrieved context.
-*   **Translation:** The system translates queries and answers between various languages, ensuring a smooth experience for users who prefer different languages.
+The **Multilingual AI Research Assistant** is an intelligent research companion that bridges language barriers in academic research. By leveraging the power of arXiv research papers, advanced language translation, and Large Language Models (Cohere), it enables researchers worldwide to:
 
-## Deployment
+- **Query in their native language** and receive answers in any preferred language
+- **Access cutting-edge research** from arXiv's vast repository of academic papers
+- **Get contextually relevant answers** powered by retrieval-augmented generation (RAG)
+- **Break down language barriers** in academic research and collaboration
 
-You can access the deployed interface on [Hugging Face Spaces](https://huggingface.co/spaces/KartikGarg163/Multilingual-AI-Research-Assistant?logs=container).
+Perfect for researchers, students, academics, and anyone seeking multilingual access to scientific literature.
 
-## Installation
+## ✨ Features
 
-To run this project locally, follow these steps:
+### 🌍 **Multilingual Support**
+- **Input**: Ask questions in 10+ languages (English, Spanish, French, German, Italian, Russian, Chinese, Japanese, Korean, Hindi)
+- **Output**: Receive answers in any supported language
+- **Smart Translation**: Powered by Argos Translate for accurate academic terminology
 
-1.  **Clone the repository:**
+### 📚 **Intelligent Research Processing**
+- **arXiv Integration**: Automatically searches and processes relevant research papers
+- **Advanced Query Handling**: Support for complex queries with OR operators
+- **Document Processing**: Extracts and processes PDF content from research papers
+- **Context-Aware Answers**: Uses RAG (Retrieval-Augmented Generation) for precise responses
 
-    ```bash
-    git clone [https://github.com/KartikGarg20526/Multilingual-AI-Research-Assistant.git](https://www.google.com/search?q=https://github.com/KartikGarg20526/Multilingual-AI-Research-Assistant.git)
-    cd Multilingual-AI-Research-Assistant
-    ```
+### 🤖 **AI-Powered Analysis**
+- **Cohere LLM Integration**: Advanced language model for generating research insights
+- **Vector Database**: Efficient document retrieval using Qdrant
+- **Semantic Search**: Find relevant information across multiple papers simultaneously
 
-2.  **Create a virtual environment and activate it:**
+### 🖥️ **User-Friendly Interface**
+- **Gradio Web Interface**: Clean, intuitive web application
+- **Real-time Processing**: Get answers in seconds
+- **Responsive Design**: Works seamlessly across devices
 
-    ```bash
-    python3 -m venv env
-    source env/bin/activate  # On Windows use `env\Scripts\activate`
-    ```
+## 🎥 Demo
 
-3.  **Install the required dependencies:**
+**Live Demo**: [Access on Hugging Face Spaces](https://huggingface.co/spaces/your-username/multilingual-ai-research-assistant)
 
-    ```bash
-    pip install -r requirements.txt
-    ```
+### Example Queries
 
-4.  **Set up your environment variables:**
+```
+Research Query: "machine learning transformers OR neural networks"
+Question: "What are the latest improvements in transformer architecture?"
+Input Language: English
+Output Language: Spanish
+```
 
-    You need to set the `COHERE_API_KEY` environment variable for Cohere's LLM API. You can get the API key from [Cohere](https://cohere.com/).
+```
+Research Query: "quantum computing algorithms"  
+Question: "¿Cuáles son los principales desafíos en los algoritmos cuánticos?"
+Input Language: Spanish
+Output Language: English
+```
 
-    *   **Linux/macOS:**
+## 🚀 Quick Start
 
-        ```bash
-        export COHERE_API_KEY="your_cohere_api_key"
-        ```
+### Prerequisites
+- Python 3.8+
+- Cohere API key ([Get one here](https://cohere.ai/))
 
-    *   **Windows:**
+### Installation
 
-        ```bash
-        set COHERE_API_KEY=your_cohere_api_key
-        ```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/KartikGarg20526/Multilingual-AI-Research-Assistant.git
+   cd Multilingual-AI-Research-Assistant
+   ```
 
-5.  **Run the Gradio interface:**
+2. **Set up virtual environment**
+   ```bash
+   python -m venv venv
+   # On Windows
+   venv\Scripts\activate
+   # On macOS/Linux  
+   source venv/bin/activate
+   ```
 
-    ```bash
-    python app.py
-    ```
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## How to Use
+4. **Configure API key**
+   ```bash
+   # Linux/macOS
+   export COHERE_API_KEY="your_cohere_api_key_here"
+   
+   # Windows Command Prompt
+   set COHERE_API_KEY=your_cohere_api_key_here
+   
+   # Windows PowerShell
+   $env:COHERE_API_KEY="your_cohere_api_key_here"
+   ```
 
-1.  **Research Query:** Enter your research query in the "Research Query" textbox.  Separate multiple queries with the word "OR".
-2.  **Question:** Ask a question related to the research papers based on the query.
-3.  **Input Language:** Choose the language you want to input your query in.
-4.  **Output Language:** Choose the language in which you want the answer to be provided.
-5.  **Submit:** Click the "Submit" button to get an answer to your question based on the research papers related to the query.
+5. **Run the application**
+   ```bash
+   python app.py
+   ```
 
-## Technologies Used
+6. **Access the interface**
+   Open your browser and go to the local URL displayed in the terminal (typically `http://127.0.0.1:7860`)
 
-*   **arXiv:** To search for relevant research papers.
-*   **Argos Translate:** For language translation.
-*   **Cohere LLM:** For generating answers based on the retrieved context from the papers.
-*   **Gradio:** For building the interactive web interface.
-*   **LangChain:** For handling document processing, vector databases, and question answering chains.
+## 📖 Usage
+
+### Basic Workflow
+
+1. **Enter Research Query**: Specify your research topic(s). Use "OR" to separate multiple queries
+   - Example: `"natural language processing OR NLP transformers"`
+
+2. **Ask Your Question**: Pose a specific question about your research area
+   - Example: `"What are the main challenges in multilingual NLP?"`
+
+3. **Choose Languages**: Select your input and output languages from the dropdown menus
+
+4. **Get Your Answer**: Click Submit and receive a comprehensive, research-backed response
+
+### Advanced Usage Tips
+
+- **Complex Queries**: Use OR operators to broaden your search scope
+- **Specific Questions**: Be specific in your questions for more targeted answers
+- **Language Mixing**: Input in one language, get output in another for cross-cultural research
+- **Academic Context**: The system is optimized for academic and research-oriented queries
+
+## 🏗️ Architecture
+
+The application follows a modular architecture:
+
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   Gradio UI     │    │  Translation     │    │   arXiv API     │
+│                 │───▶│  (Argos)         │───▶│                 │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                                │                        │
+                                ▼                        ▼
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│  Cohere LLM     │◄───│  RAG Pipeline    │◄───│ Document        │
+│                 │    │  (LangChain)     │    │ Processing      │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+                                │
+                                ▼
+                       ┌──────────────────┐
+                       │  Vector Store    │
+                       │  (Qdrant)        │
+                       └──────────────────┘
+```
+
+## 🛠️ Technologies Used
+
+| Component | Technology | Purpose |
+|-----------|------------|---------|
+| **AI/ML** | [Cohere LLM](https://cohere.ai/) | Answer generation and reasoning |
+| **Translation** | [Argos Translate](https://github.com/argosopentech/argos-translate) | Multi-language support |
+| **Research API** | [arXiv Python](https://github.com/lukasschwab/arxiv.py) | Academic paper retrieval |
+| **RAG Framework** | [LangChain](https://langchain.com/) | Document processing and retrieval |
+| **Vector Database** | [Qdrant](https://qdrant.tech/) | Semantic search and storage |
+| **Embeddings** | [HuggingFace Transformers](https://huggingface.co/) | Text vectorization |
+| **PDF Processing** | [PyPDF](https://github.com/py-pdf/pypdf) | Document parsing |
+| **Web Interface** | [Gradio](https://gradio.app/) | Interactive UI |
+
+## 📋 API Reference
+
+### Supported Languages
+
+| Language | ISO Code | Language | ISO Code |
+|----------|----------|----------|----------|
+| English | `en` | Chinese | `zh` |
+| Spanish | `es` | Japanese | `ja` |
+| French | `fr` | Korean | `ko` |
+| German | `de` | Hindi | `hi` |
+| Italian | `it` | Russian | `ru` |
+
+### Query Format
+
+- **Single Query**: `"machine learning"`
+- **Multiple Queries**: `"deep learning OR neural networks OR AI"`
+- **Complex Queries**: `"transformer architecture OR attention mechanisms OR BERT"`
+
+## 🤝 Contributing
+
+We welcome contributions from the community! Here's how you can help:
+
+### Ways to Contribute
+
+- 🐛 **Report Bugs**: Open an issue with detailed reproduction steps
+- 💡 **Suggest Features**: Share ideas for new functionality
+- 🔧 **Code Contributions**: Submit pull requests with improvements
+- 📝 **Documentation**: Help improve our docs and examples
+- 🌍 **Translations**: Add support for new languages
+
+### Development Setup
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/amazing-feature`
+3. Make your changes and test thoroughly
+4. Commit your changes: `git commit -m 'Add amazing feature'`
+5. Push to the branch: `git push origin feature/amazing-feature`
+6. Open a Pull Request
+
+### Code Style
+
+- Follow PEP 8 conventions
+- Add docstrings for new functions
+- Include unit tests for new features
+- Update documentation as needed
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **arXiv** for providing free access to research papers
+- **Cohere** for powerful language model capabilities  
+- **Argos Translate** for open-source translation
+- **LangChain** community for excellent RAG tools
+- **Gradio** team for the intuitive interface framework
+
+## 📞 Support & Contact
+
+- 🐛 **Issues**: [GitHub Issues](https://github.com/KartikGarg20526/Multilingual-AI-Research-Assistant/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/KartikGarg20526/Multilingual-AI-Research-Assistant/discussions)
+- 📧 **Email**: [your-email@example.com](mailto:your-email@example.com)
+- 🐦 **Twitter**: [@yourusername](https://twitter.com/yourusername)
+
+## 🔮 Roadmap
+
+- [ ] **Enhanced Language Support**: Add more languages and improve translation accuracy
+- [ ] **Advanced Search**: Implement semantic search across multiple academic databases
+- [ ] **Export Features**: Add PDF/Word export for research summaries
+- [ ] **Citation Management**: Automatic citation generation in multiple formats
+- [ ] **Collaboration Tools**: Multi-user sessions and shared research spaces
+- [ ] **Mobile App**: Native mobile applications for iOS and Android
+- [ ] **API Endpoints**: RESTful API for programmatic access
+
+---
+
+<div align="center">
+  <p>
+    <strong>Built with ❤️ for the global research community</strong>
+  </p>
+  <p>
+    <a href="https://github.com/KartikGarg20526/Multilingual-AI-Research-Assistant">⭐ Star this project</a> if you find it useful!
+  </p>
+</div>
