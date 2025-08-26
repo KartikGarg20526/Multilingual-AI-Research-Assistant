@@ -155,7 +155,7 @@ The application follows a modular architecture:
 | **Research API** | [arXiv Python](https://github.com/lukasschwab/arxiv.py) | Academic paper retrieval |
 | **RAG Framework** | [LangChain](https://langchain.com/) | Document processing and retrieval |
 | **Vector Database** | [Qdrant](https://qdrant.tech/) | Semantic search and storage |
-| **Embeddings** | [HuggingFace Transformers](https://huggingface.co/) | Text vectorization |
+| **Embeddings** | [HuggingFace Transformers](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) | Text vectorization |
 | **PDF Processing** | [PyPDF](https://github.com/py-pdf/pypdf) | Document parsing |
 | **Web Interface** | [Gradio](https://gradio.app/) | Interactive UI |
 
@@ -176,3 +176,4 @@ The application follows a modular architecture:
 - **Single Query**: `"machine learning"`
 - **Multiple Queries**: `"deep learning OR neural networks OR AI"`
 - **Complex Queries**: `"transformer architecture OR attention mechanisms OR BERT"`
+
